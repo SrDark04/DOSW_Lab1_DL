@@ -5,8 +5,11 @@ public class CarreraParalela {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         String linea = sc.nextLine();
+        
         String[] partes = linea.split(",");
+
         List<Integer> numeros = new ArrayList<>();
+
         for(String parte : partes){
             numeros.add(Integer.parseInt(parte));
         }
