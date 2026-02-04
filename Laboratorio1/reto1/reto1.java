@@ -14,6 +14,7 @@ public class reto1 {
             this.semester = String.valueOf(semester);
             this.mail = mail;
         }
+        
     }
 
     public static class WelcomeMessage{
@@ -43,4 +44,5 @@ public class reto1 {
 
         WelcomeMessage.printWelcomeMessage(students);
     }
+
 }
