@@ -23,6 +23,8 @@ public class reto3 {
 
         Function<String, String> eco = msg -> ecoFinal(msg);
 
+
+        
         System.out.println(eco.apply(entrada));
 
     }
