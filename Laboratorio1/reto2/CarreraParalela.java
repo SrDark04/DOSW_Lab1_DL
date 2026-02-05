@@ -19,13 +19,13 @@ public class CarreraParalela {
 
     public static void numeroMinimo(List<Integer> numeros){
         int minimo = numeros.stream()
-                .reduce(Integer.MIN_VALUE, (a, b) -> a < b ? a : b);
+                .reduce(Integer.MAX_VALUE, (a, b) -> a < b ? a : b);
         System.out.println("El numero minimo es: " + minimo);
     }
 
     public static void hallarElMayorDeUnaLista(List<Integer> numeros){
         int mayor = numeros.stream()
                     .reduce(Integer.MIN_VALUE, (a, b) -> a > b ? a : b);
-        System.out.println(mayor);
+        System.out.println("El numero mayor es: " + mayor);
     }
 }
