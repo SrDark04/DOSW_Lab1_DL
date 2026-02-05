@@ -1,5 +1,7 @@
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.IntStream;
+import java.util.stream.Collectors;
 
 
 public class reto3 {
@@ -11,7 +13,6 @@ public class reto3 {
                 .collect(Collectors.joining(" "));
 
         return new StringBuilder(repetido).reverse().toString();
-
     }
 
     public static void main(String[] args) {
