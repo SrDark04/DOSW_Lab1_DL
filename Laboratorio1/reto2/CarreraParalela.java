@@ -4,15 +4,29 @@ public class CarreraParalela {
 
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        String linea = sc.nextLine();
+        String linea1 = sc.nextLine();
         
-        String[] partes = linea.split(",");
+        String[] partes = linea1.split(",");
 
         List<Integer> numeros = new ArrayList<>();
 
         for(String parte : partes){
             numeros.add(Integer.parseInt(parte));
         }
+
+        String linea2 = sc.nextLine();
+        String[] partes2 = linea2.split(",");
+        List<Integer> numeros2 = new ArrayList<>();
+        for(String parte : partes2){
+            numeros2.add(Integer.parseInt(parte));
+        }
+
+        int mayorDeLista1 = hallarElMayorDeUnaLista(numeros);
+        int mayorDeLista2 = hallarElMayorDeUnaLista(numeros2);
+
+        int menorDeLista1 = numeroMinimo(numeros);
+        int menorDeLista2 = numeroMinimo(numeros2);
+
         numeroMinimo(numeros);
         hallarElMayorDeUnaLista(numeros);
     }
@@ -36,4 +50,6 @@ public class CarreraParalela {
 
                  
     }
+
+
 }
