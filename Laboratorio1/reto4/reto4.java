@@ -1,32 +1,46 @@
 import java.util.*;
+import java.util.stream.*;
 
 public class reto4 {
 
-    // 1️⃣ Crear Hashtable ignorando duplicados (conserva el primero)
+    public static HashMap<String, Integer> crearHashMap(List<Map.Entry<String, Integer>> datos) {
+        HashMap<String, Integer> mapa = new HashMap<>();
+        for (Map.Entry<String, Integer> entry : datos) {
+            mapa.putIfAbsent(entry.getKey(), entry.getValue());
+        }
+        return mapa;
+    }
+
     public static Hashtable<String, Integer> crearHashtable(List<Map.Entry<String, Integer>> datos) {
         Hashtable<String, Integer> tabla = new Hashtable<>();
-
         for (Map.Entry<String, Integer> entry : datos) {
             tabla.putIfAbsent(entry.getKey(), entry.getValue());
         }
         return tabla;
     }
 
-    // 2️⃣ Combinar mapas priorizando Hashtable (MISMO NOMBRE)
     public static Map<String, Integer> combinarMapas(
             HashMap<String, Integer> hashMap,
             Hashtable<String, Integer> hashTable) {
 
-        Map<String, Integer> combinado = new Hashtable<>(hashMap);
+        Map<String, Integer> combinado = new HashMap<>(hashMap);
         combinado.putAll(hashTable); // Hashtable tiene prioridad
         return combinado;
     }
 
-    // 3️⃣ Ordenar claves ascendentemente e imprimir
-    public static void imprimirOrdenado(Map<String, Integer> mapa) {
-        mapa.entrySet()
+    public static void imprimirTesoroFinal(
+            HashMap<String, Integer> hashMap,
+            Hashtable<String, Integer> hashTable) {
+
+        Stream.concat(hashMap.entrySet().stream(), hashTable.entrySet().stream())
+            .collect(Collectors.toMap(
+                e -> e.getKey().toUpperCase(), // convertir claves a mayúsculas
+                Map.Entry::getValue,
+                (valorHashMap, valorHashTable) -> valorHashTable // prioridad Hashtable
+            ))
+            .entrySet()
             .stream()
-            .sorted(Map.Entry.comparingByKey())
+            .sorted(Map.Entry.comparingByKey()) // ordenar ascendente
             .forEach(e ->
                 System.out.println("Clave: " + e.getKey() +
                                    " | Valor: " + e.getValue())
