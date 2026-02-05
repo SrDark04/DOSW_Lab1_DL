@@ -1,6 +1,5 @@
 import java.util.*;
 
-<<<<<<< HEAD
 public class CarreraParalela {
 
     public static void main(String[] args){
