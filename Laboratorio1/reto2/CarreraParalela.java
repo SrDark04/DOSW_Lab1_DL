@@ -23,12 +23,14 @@ public class CarreraParalela {
 
         int mayorDeLista1 = hallarElMayorDeUnaLista(numeros);
         int mayorDeLista2 = hallarElMayorDeUnaLista(numeros2);
-
         int menorDeLista1 = numeroMinimo(numeros);
         int menorDeLista2 = numeroMinimo(numeros2);
-
-        numeroMinimo(numeros);
-        hallarElMayorDeUnaLista(numeros);
+        String esParLista1 = esPar(numeros);
+        String esParLista2 = esPar(numeros2);
+        int elementosLista1 = cantidadDeElementosPorLista(numeros);
+        int elementosLista2 = cantidadDeElementosPorLista(numeros2);
+        boolean esMultiploMayor1 = esmultiploPar(mayorDeLista1);
+        boolean esMultiploMayor2 = esmultiploPar(mayorDeLista2);
 
         Runnable imprimirResultados = () -> {
             System.out.println("===== RESULTADOS =====");
@@ -53,32 +55,31 @@ public class CarreraParalela {
         imprimirResultados.run();
     }
 
-
-    public static void numeroMinimo(List<Integer> numeros){
+    public static int numeroMinimo(List<Integer> numeros){
         int minimo = numeros.stream()
                 .reduce(Integer.MAX_VALUE, (a, b) -> a < b ? a : b);
-        System.out.println("El numero minimo es: " + minimo);
+        return minimo;
     }
 
-    public static void hallarElMayorDeUnaLista(List<Integer> numeros){
+    public static int hallarElMayorDeUnaLista(List<Integer> numeros){
         int mayor = numeros.stream()
                     .reduce(Integer.MIN_VALUE, (a, b) -> a > b ? a : b);
-        System.out.println("El numero mayor es: " + mayor);
+        return mayor;
     }
-
-    public static void esImpar(List<Integer> numeros){
+    
+    public static String esPar(List<Integer> numeros){
         int longitudDatos = numeros.size();
 
-        System.out.println((longitudDatos % 2 == 0) ? "no es impar" : "impar");
+        return((longitudDatos % 2 == 0) ? "es par" : "es impar");
     }
 
-    public static void NumerosDeDatosPar(List<Integer> numeros){
-        int longitudDatos = numeros.size();
-
-        System.out.println((longitudDatos % 2 == 0) ? "es par" : "no es par");
-
-                 
+    public static int cantidadDeElementosPorLista(List<Integer> numeros){
+        int cantidadElementos = numeros.size();
+        return cantidadElementos;
     }
     
 
+    public static boolean esmultiploPar(int numero){
+        return (numero % 2 == 0);
+    }
 }
