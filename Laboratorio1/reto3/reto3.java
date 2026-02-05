@@ -1,9 +1,17 @@
 import java.util.*;
 import java.util.function.Function;
 
+
 public class reto3 {
+    
+
     public static String ecoFinal(String mensaje) {
-        return new StringBuilder(mensaje).reverse().toString();
+        String repetido = IntStream.range(0, 3)
+                .mapToObj(i -> mensaje)
+                .collect(Collectors.joining(" "));
+
+        return new StringBuilder(repetido).reverse().toString();
+
     }
 
     public static void main(String[] args) {
