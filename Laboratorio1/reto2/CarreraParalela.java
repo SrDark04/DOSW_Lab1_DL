@@ -28,4 +28,12 @@ public class CarreraParalela {
                     .reduce(Integer.MIN_VALUE, (a, b) -> a > b ? a : b);
         System.out.println("El numero mayor es: " + mayor);
     }
+
+    public static void NumerosDeDatosPar(List<Integer> numeros){
+        int longitudDatos = numeros.size();
+
+        System.out.println((longitudDatos % 2 == 0) ? "es par" : "no es par");
+
+                 
+    }
 }
