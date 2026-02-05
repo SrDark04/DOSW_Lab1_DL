@@ -15,6 +15,12 @@ public class CarreraParalela {
         }
         numeroMinimo(numeros);
         hallarElMayorDeUnaLista(numeros);
+        String esParLista1 = esPar(numeros);
+        String esParLista2 = esPar(numeros);
+        int elementosLista1 = cantidadDeElementosPorLista(numeros);
+        int elementosLista2 = cantidadDeElementosPorLista(numeros);
+        boolean esMultiploMayor1 = esmultiploPar(mayor);
+        boolean esMultiploMayor2 = esmultiploPar(mayor);
 
     }
 
@@ -30,20 +36,15 @@ public class CarreraParalela {
         System.out.println("El numero mayor es: " + mayor);
     }
 
-<<<<<<< HEAD
-    public static void esImpar(List<Integer> numeros){
+
+    public static String esPar(List<Integer> numeros){
         int longitudDatos = numeros.size();
 
-        System.out.println((longitudDatos % 2 == 0) ? "no es impar" : "impar");
+        return((longitudDatos % 2 == 0) ? "es par" : "es impar");
     }
 
-=======
-    public static void NumerosDeDatosPar(List<Integer> numeros){
-        int longitudDatos = numeros.size();
-
-        System.out.println((longitudDatos % 2 == 0) ? "es par" : "no es par");
-
-                 
+    public static int cantidadDeElementosPorLista(List<Integer> numeros){
+        int cantidadElementos = numeros.size();
+        return cantidadElementos;
     }
->>>>>>> 57875b0815d9873759582a58201bc6e82523c3c8
 }
