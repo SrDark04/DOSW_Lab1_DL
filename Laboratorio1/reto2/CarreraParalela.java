@@ -1,5 +1,6 @@
 import java.util.*;
 
+<<<<<<< HEAD
 public class CarreraParalela {
 
     public static void main(String[] args){
@@ -14,11 +15,18 @@ public class CarreraParalela {
             numeros.add(Integer.parseInt(parte));
         }
         numeroMinimo(numeros);
+        hallarElMayorDeUnaLista(numeros);
     }
 
     public static void numeroMinimo(List<Integer> numeros){
         int minimo = numeros.stream()
                 .reduce(Integer.MIN_VALUE, (a, b) -> a < b ? a : b);
         System.out.println("El numero minimo es: " + minimo);
+    }
+
+    public static void hallarElMayorDeUnaLista(List<Integer> numeros){
+        int mayor = numeros.stream()
+                    .reduce(Integer.MIN_VALUE, (a, b) -> a > b ? a : b);
+        System.out.println(mayor);
     }
 }
