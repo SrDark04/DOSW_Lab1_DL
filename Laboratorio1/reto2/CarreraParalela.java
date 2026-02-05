@@ -30,7 +30,29 @@ public class CarreraParalela {
         numeroMinimo(numeros);
         hallarElMayorDeUnaLista(numeros);
 
+        Runnable imprimirResultados = () -> {
+            System.out.println("===== RESULTADOS =====");
+
+            System.out.println("Lista 1:");
+            System.out.println("Mayor: " + mayorDeLista1);
+            System.out.println("Menor: " + menorDeLista1);
+            System.out.println("Cantidad de elementos: " + elementosLista1);
+            System.out.println("La cantidad de elementos " + esParLista1);
+            System.out.println("El mayor " + 
+                (esMultiploMayor1 ? "es múltiplo de 2" : "no es múltiplo de 2"));
+
+            System.out.println("\nLista 2:");
+            System.out.println("Mayor: " + mayorDeLista2);
+            System.out.println("Menor: " + menorDeLista2);
+            System.out.println("Cantidad de elementos: " + elementosLista2);
+            System.out.println("La cantidad de elementos " + esParLista2);
+            System.out.println("El mayor " + 
+                (esMultiploMayor2 ? "es múltiplo de 2" : "no es múltiplo de 2"));
+        };
+
+        imprimirResultados.run();
     }
+
 
     public static void numeroMinimo(List<Integer> numeros){
         int minimo = numeros.stream()
@@ -57,5 +79,6 @@ public class CarreraParalela {
 
                  
     }
+    
 
 }
